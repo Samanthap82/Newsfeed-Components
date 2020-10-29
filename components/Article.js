@@ -115,6 +115,8 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+
 // creating elements
 function articleMaker(articleObj) {
   const artDiv = document.createElement("div");
@@ -168,5 +170,5 @@ articleButton.style.transform = 'scale(3)'
 data.forEach(obj=> {
   document.body.appendChild(articleMaker(obj));
   
-    
-  });
+}) 
+}

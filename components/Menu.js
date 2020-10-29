@@ -34,7 +34,7 @@ let menuItems = [
 
 
 // creating elements
-function menuMake(array) {
+function menuMaker(array) {
   const menuStuff = document.createElement('div');
   const ul = document.createElement('ul');
 
@@ -58,3 +58,6 @@ img.addEventListener('click', evntobj =>{
 });
 return menuStuff;
 }
+
+const header = document.querySelector('.header');
+header.appendChild(menuMaker(menuItems));
