@@ -103,6 +103,7 @@ const data = [
     <span class="expandButton">+</span>
   </div>
 
+
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 
@@ -114,3 +115,58 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+// creating elements
+function articleMaker(articleObj) {
+  const artDiv = document.createElement("div");
+  const artTitle = document.createElement("h2");
+  const artDate = document.createElement("p");
+  const p1 = document.createElement("p");
+  const p2 = document.createElement("p");
+  const p3 = document.createElement("p");
+  const articleButton = document.createElement("span");
+// adding classes
+artDiv.classList.add('article');
+artDiv.classList.add('article-open');
+artDate.classList.add('date');
+articleButton.classList.add('expandButton');
+
+// Setting text
+artTitle.textContent = title;
+artDate.textContent = date;
+p1.textContent = firstParagraph;
+p2.textContent = secondParagraph;
+p3.textContent = thirdParagraph;
+articleButton.textContent = '+';
+articleButton.style.transform = 'scale(3)'
+
+
+
+  artDiv.prepend(artTitle);
+  artDiv.appendChild(artDate);
+  artDiv.appendChild(p1);
+  artDiv.appendChild(p2);
+  artDiv.appendChild(p3);
+  artDiv.appendChild(articleButton);
+
+
+
+
+  
+  articleButton.addEventListener('click', evntObj => {
+    artDiv.classList.toggle('article-open');
+    let array = Array.from(artDiv.classList);
+    if (array.includes('article-open')) {
+      artTitle.style.opacity = '1.0';
+    }else {
+      artTitle.style.opacity = '0.0';
+    }
+  });
+  return artDiv;
+
+}
+
+data.forEach(obj=> {
+  document.body.appendChild(articleMaker(obj));
+  
+    
+  });
